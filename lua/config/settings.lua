@@ -1,9 +1,13 @@
 -- Options
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.expandtab = false
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.clipboard = ""
-vim.o.mouse = ""
+local o = vim.o
+local map = vim.api.nvim_set_keymap
 
+vim.g.mapleader = " "
+
+o.number = true
+o.relativenumber = true
+o.expandtab = false
+o.tabstop = 4
+o.shiftwidth = 4
+o.clipboard = ""
+o.mouse = ""
