@@ -8,3 +8,4 @@ o.mouse = ""
 o.clipboard = ""
 o.number = true
 o.relativenumber = true
+o.background = "dark"

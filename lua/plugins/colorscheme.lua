@@ -1,8 +1,8 @@
 return {
-	"wuelnerdotexe/vim-enfocado",
+	"sainnhe/gruvbox-material",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		vim.cmd([[colorscheme enfocado]])
+		vim.cmd([[colorscheme gruvbox-material]])
 	end,
 }
