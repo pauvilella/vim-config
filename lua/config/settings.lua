@@ -9,3 +9,5 @@ o.clipboard = ""
 o.number = true
 o.relativenumber = true
 o.background = "dark"
+o.termguicolors = true
+

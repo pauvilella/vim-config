@@ -17,7 +17,7 @@ return {
       "gowork",
       "lua",
       "luadoc",
-    },  
+    },
     highlight = {
       enable = true,
     },
