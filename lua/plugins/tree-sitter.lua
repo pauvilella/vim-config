@@ -8,15 +8,9 @@ return {
   main = "nvim-treesitter.configs",
   opts = {
     ensure_installed = {
-      "go",
-      "goctl",
-      "godot_resource",
-      "gomod",
-      "gosum",
-      "gotmpl",
-      "gowork",
       "lua",
       "luadoc",
+      "yaml",
     },
     highlight = {
       enable = true,
