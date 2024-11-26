@@ -32,6 +32,13 @@ return {
       desc = "Telescope Git Files",
     },
     {
+      "<leader>ps",
+      function()
+        require('telescope.builtin').live_grep()
+      end,
+      desc = "Telescope Search String (live grep)",
+    },
+    {
       "<leader>pe",
       function()
         require("telescope.builtin").buffers()
