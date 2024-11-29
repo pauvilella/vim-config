@@ -80,6 +80,22 @@ return {
       }
     })
 
+    -- Golang
+    lspconfig.gopls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        filetypes = { "go", "gomod", "gowork", "gotmpl" }
+      }
+    })
 
+    -- Bash
+    lspconfig.bashls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        filetypes = { "bash", "sh" }
+      }
+    })
   end
 }

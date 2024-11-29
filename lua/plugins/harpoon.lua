@@ -8,9 +8,9 @@ return {
         local mark = require("harpoon.mark")
         local ui = require("harpoon.ui")
 
-        keymap.set("n", "<leader>a", mark.add_file)        -- Add current file
+        keymap.set("n", "<leader>ha", mark.add_file)        -- Add current file
         keymap.set("n", "<leader>hd", mark.clear_all)      -- Remove harpoon stack
-        keymap.set("n", "<leader>m", ui.toggle_quick_menu) -- Show/disable quick menu
+        keymap.set("n", "<leader>hs", ui.toggle_quick_menu) -- Show/disable quick menu
 
         keymap.set("n", "<C-n>", function() ui.nav_next() end)
         keymap.set("n", "<C-p>", function() ui.nav_prev() end)

@@ -1,16 +1,20 @@
 local keymap = vim.keymap
 
+-- Quickly quit
+keymap.set({ "n" }, "<leader>q", ":xa<cr>", { desc="Save and quit all buffers" })
+
 
 -- <J> and <K> move the seleted line(s) up & down
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- Copies the buffer content without flushing
-keymap.set("x", "<leader>p", [["_dP]])
+-- For easily indenting lines
+keymap.set('v', '>', '>gv', { desc = "after tab in re-select the same" })
+keymap.set('v', '<', '<gv', { desc = "after tab out re-select the same" })
 
--- Copies to the system clipboard
-keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-keymap.set("n", "<leader>Y", [["+Y]])
+-- For easily search results and have the cursor on the middle of the screen so I don't get loget lostt
+keymap.set('n', 'n', 'nzzzv', { desc = "Goes to the next result on the seach and put the cursor in the middle" })
+keymap.set('n', 'N', 'Nzzzv', { desc = "Goes to the prev result on the seach and put the cursor in the middle" })
 
 -- Deletes to the void register
 keymap.set({ "n", "v" }, "<leader>d", "\"_d")
@@ -21,24 +25,15 @@ keymap.set("n", "Q", "<nop>")
 -- Helps with text substitution
 keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- Window managment --
-keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })                   -- split window vertically
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })                 -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })                    -- make split windows equal width & height
-keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })               -- close current split window
+-- Window management
+keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })     -- split window vertically
+keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })   -- split window horizontally
+keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })      -- make split windows equal width & height
+keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
-keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })                     -- open new tab
-keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })              -- close current tab
-keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })                     --  go to next tab
-keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })                 --  go to previous tab
-keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+-- Buffer Management
+keymap.set('n', '<leader>bd', ':bd<cr>', { desc = "Close current buffer" })
 
-keymap.set('n', '<leader>bd', ':bd!<cr>', {desc = "Close current buffer" })
+-- Source files
+keymap.set('', '<leader>rr', ':source %<cr>', { desc = "Source the current file (double r: Reload)" })
 
-keymap.set('', '<leader>rr', ':source %<cr>', { desc = "Source the current file" })
-
-keymap.set('v', '>', '>gv', { desc = "after tab in re-select the same"})
-keymap.set('v', '<', '<gv', { desc = "after tab out re-select the same"})
-
-keymap.set('n', 'n', 'nzzzv', { desc = "Goes to the next result on the seach and put the cursor in the middle"})
-keymap.set('n', 'N', 'Nzzzv', { desc = "Goes to the prev result on the seach and put the cursor in the middle"})

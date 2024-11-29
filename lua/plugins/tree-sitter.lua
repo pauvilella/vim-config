@@ -8,6 +8,12 @@ return {
   main = "nvim-treesitter.configs",
   opts = {
     ensure_installed = {
+      "bash",
+      "go",
+      "gomod",
+      "gosum",
+      "gotmpl",
+      "gowork",
       "lua",
       "luadoc",
       "yaml",
