@@ -24,7 +24,7 @@ return {
       keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
       keymap.set('n', 'K', vim.lsp.buf.hover, opts)
       keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-      keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+      keymap.set('n', 'gs', vim.lsp.buf.signature_help, opts)
       keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
       keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
       keymap.set('n', '<space>wl', function()
