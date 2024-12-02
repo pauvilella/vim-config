@@ -31,9 +31,6 @@ keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) 
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })      -- make split windows equal width & height
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
--- Buffer Management
-keymap.set('n', '<leader>bd', ':bd<cr>', { desc = "Close current buffer" })
-
 -- Source files
 keymap.set('', '<leader>rr', ':source %<cr>', { desc = "Source the current file (double r: Reload)" })
 
