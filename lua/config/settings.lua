@@ -9,3 +9,4 @@ o.relativenumber = true
 o.background = "dark"
 o.termguicolors = true
 o.mousemoveevent = true
+o.wrap = false
