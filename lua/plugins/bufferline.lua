@@ -29,13 +29,16 @@ return {
 
     keymap.set("n", "<Tab>", ':BufferLineCycleNext<cr>', { noremap = true, silent = true })
     keymap.set("n", "<S-Tab>", ':BufferLineCyclePrev<cr>', { noremap = true, silent = true })
+    keymap.set("n", "<leader>bdo", ":BufferLineCloseOthers<cr>", { noremap = true, silent = true })
+    keymap.set("n", "<leader>bdp", ":BufferLinePickClose<cr>", { noremap = true, silent = true })
+    keymap.set("n", "<leader>bdl", ":BufferLineCloseLeft<cr>", { noremap = true, silent = true })
+    keymap.set("n", "<leader>bdr", ":BufferLineCloseRight<cr>", { noremap = true, silent = true })
+    keymap.set("n", "<leader>bd", ":bd<cr>", { noremap = true, silent = true })
     -- Make <leader> number navigate to the tab (buffer) with that number
     for i = 1, 9 do
       keymap.set('n', '<Leader>' .. i, function()
         vim.cmd("BufferLineGoToBuffer " .. i)
       end, { noremap = true, silent = true })
     end
-    keymap.set("n", "<leader>bdo", ":BufferLineCloseOthers<cr>", { noremap = true, silent = true })
-    keymap.set("n", "<leader>bdp", ":BufferLinePickClose<cr>", { noremap = true, silent = true })
   end,
 }
