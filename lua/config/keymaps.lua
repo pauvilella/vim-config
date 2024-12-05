@@ -25,8 +25,16 @@ keymap.set({ "n", "v" }, "<leader>d", "\"_d")
 -- Nothing done when <Q> is pressed
 keymap.set("n", "Q", "<nop>")
 
--- Helps with text substitution
-keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-- Remove highlight after search
+keymap.set("n", "<leader>nh", ":nohlsearch<CR>", { noremap = true, silent = true, desc = "Remove highlight search"})
+
+-- Helps with text search and text replace
+-- rw: Replace Word (under cursor) starting from the cursor until the end of the file
+keymap.set("n", "<leader>rw", [[:,$s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]])
+-- rwa: Replce All Words (under cursor) starting from the beginning of the file until the end of the file
+keymap.set("n", "<leader>raw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]])
+-- sw: Search Word
+keymap.set("n", "<leader>sw", [[:/\<<C-r><C-w>\><CR>]])
 
 -- Window management
 keymap.set("n", "<leader>sv", "<C-w>v", { noremap = true, silent = true, desc = "Split window vertically" })     -- split window vertically
