@@ -4,7 +4,6 @@ return {
   main = "config.plugins.luasnip",
   config = function()
     local ls = require('luasnip')
-    local types = require('luasnip.util.types')
 
     ls.config.set_config {
       -- This tells LuaSnip to remember to keep around the last snippet.
@@ -16,14 +15,6 @@ return {
 
       -- Autosnippets:
       enable_autosnippets = true,
-
-      ext_opts = {
-        [types.choiceNode] = {
-          active = {
-            virt_text = { { "<- Choice", "Error" } },
-          },
-        },
-      },
     }
   end,
 }
