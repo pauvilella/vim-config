@@ -11,31 +11,55 @@ return {
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local neodev = require("neodev")
 
-    local keymap = vim.keymap -- for conciseness
-    keymap.set('n', '<space>e', vim.diagnostic.open_float)
-    keymap.set('n', '[d', vim.diagnostic.goto_prev)
-    keymap.set('n', ']d', vim.diagnostic.goto_next)
-    keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
     local on_attach = function(_, bufnr)
+      local keymap = vim.keymap
+
       vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
       local opts = { buffer = bufnr }
-      keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-      keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+
+      -- Displays hover information about the symbol under the cursor
       keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+
+      -- Jump to the definition
+      keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+
+      -- Jump to the declaration
+      keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+
+      -- Lists all the implementations for the symbol under the cursor
       keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-      keymap.set('n', 'gs', vim.lsp.buf.signature_help, opts)
-      keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-      keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-      keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+
+      -- Jumps to the definition of the type symbol
+      keymap.set('n', 'go', vim.lsp.buf.type_definition, opts)
+
+      -- Lists all the references
       keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+
+      -- Displays a function's signature information
+      keymap.set('n', 'gs', vim.lsp.buf.signature_help, opts)
+
+      -- Renames all references to the symbol under the cursor
+      keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+
+      -- Selects a code action available at the current cursor position
+      keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+
+      -- Formats de buffer
       keymap.set('n', '<space>f', function()
         vim.lsp.buf.format { async = true }
       end, opts)
+
+      -- Move to the next diagnostic
+      keymap.set('n', 'ñ', vim.diagnostic.goto_next)
+
+      -- Move to the previous diagnostic
+      keymap.set('n', 'Ñ', vim.diagnostic.goto_prev)
+
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+    local lsp_capabilities = cmp_nvim_lsp.default_capabilities()
 
     -- Setup Neodev
     neodev.setup()
@@ -43,7 +67,7 @@ return {
     -- Lua
     lspconfig.lua_ls.setup({
       on_attach = on_attach,
-      capabilities = capabilities,
+      capabilities = lsp_capabilities,
       settings = {
         Lua = {
           telemetry = { enable = false },
@@ -55,13 +79,13 @@ return {
     -- Tailwind
     lspconfig.tailwindcss.setup({
       on_attach = on_attach,
-      capabilities = capabilities,
+      capabilities = lsp_capabilities,
     })
 
     -- Yaml
     lspconfig.yamlls.setup({
       on_attach = on_attach,
-      capabilities = capabilities,
+      capabilities = lsp_capabilities,
       settings = {
         yaml = {
           format = {
@@ -78,7 +102,7 @@ return {
     -- Golang
     lspconfig.gopls.setup({
       on_attach = on_attach,
-      capabilities = capabilities,
+      capabilities = lsp_capabilities,
       settings = {
         filetypes = { "go", "gomod", "gowork", "gotmpl" }
       }
@@ -87,7 +111,7 @@ return {
     -- Bash
     lspconfig.bashls.setup({
       on_attach = on_attach,
-      capabilities = capabilities,
+      capabilities = lsp_capabilities,
       settings = {
         filetypes = { "bash", "sh" }
       }
