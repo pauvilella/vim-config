@@ -131,5 +131,18 @@ return {
       on_attach = on_attach,
       capabilities = lsp_capabilities,
     })
+
+    -- Json
+    lspconfig.jsonls.setup({
+      on_attach = on_attach,
+      capabilities = lsp_capabilities,
+      settings = {
+        json = {
+          format = {
+            enable = true,
+          },
+        }
+      }
+    })
   end
 }
