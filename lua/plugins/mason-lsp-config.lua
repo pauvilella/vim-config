@@ -82,12 +82,6 @@ return {
       }
     })
 
-    -- Tailwind
-    lspconfig.tailwindcss.setup({
-      on_attach = on_attach,
-      capabilities = lsp_capabilities,
-    })
-
     -- Yaml
     lspconfig.yamlls.setup({
       on_attach = on_attach,
