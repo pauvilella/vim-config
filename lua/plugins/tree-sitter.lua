@@ -14,8 +14,10 @@ return {
       "gosum",
       "gotmpl",
       "gowork",
+      "hcl",
       "lua",
       "luadoc",
+      "terraform",
       "yaml",
     },
     highlight = {

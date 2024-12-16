@@ -55,7 +55,6 @@ return {
 
       -- Move to the previous diagnostic
       keymap.set('n', 'Ñ', vim.diagnostic.goto_prev)
-
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
@@ -114,6 +113,15 @@ return {
       capabilities = lsp_capabilities,
       settings = {
         filetypes = { "bash", "sh" }
+      }
+    })
+
+    -- Terraform
+    lspconfig.terraformls.setup({
+      on_attach = on_attach,
+      capabilities = lsp_capabilities,
+      settings = {
+        filetypes = { "terraform", "terraform-vars" }
       }
     })
   end
