@@ -1,12 +1,19 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "williamboman/mason.nvim",
+    { "williamboman/mason.nvim",             config = true },
+    { "antosha417/nvim-lsp-file-operations", config = true },
+    "williamboman/mason-lspconfig.nvim",
     "folke/neodev.nvim",
     "hrsh7th/cmp-nvim-lsp",
-    { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
+    -- We are using mason-lspconfig to easily manage Mason and lsp-config together
+    require("mason-lspconfig").setup {
+      -- Automatically install all LSP servers in Mason if they are configured in this file (lsp-config section)
+      automatic_installation = true
+    }
+
     local lspconfig = require("lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local neodev = require("neodev")
@@ -123,6 +130,12 @@ return {
       settings = {
         filetypes = { "terraform", "terraform-vars" }
       }
+    })
+
+    -- Markdown
+    lspconfig.marksman.setup({
+      on_attach = on_attach,
+      capabilities = lsp_capabilities,
     })
   end
 }
