@@ -5,6 +5,9 @@ keymap.set({ "n" }, "<leader>q", ":xa<cr>", { noremap = true, silent = true, des
 -- Save all files
 keymap.set({ "n" }, "<leader>w", ":wa<cr>", { noremap = true, silent = true, desc = "Save all buffers" })
 
+-- Select all
+keymap.set("n", "<leader>a", ":keepjumps normal! ggVG<cr>", { noremap = true, silent = true, desc = "Select all" })
+
 -- <J> and <K> move the seleted line(s) up & down
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -26,7 +29,7 @@ keymap.set({ "n", "v" }, "<leader>d", "\"_d")
 keymap.set("n", "Q", "<nop>")
 
 -- Remove highlight after search
-keymap.set("n", "<leader>nh", ":nohlsearch<CR>", { noremap = true, silent = true, desc = "Remove highlight search"})
+keymap.set("n", "<leader>nh", ":nohlsearch<CR>", { noremap = true, silent = true, desc = "Remove highlight search" })
 
 -- Helps with text search and text replace
 -- rw: Replace Word (under cursor) starting from the cursor until the end of the file
