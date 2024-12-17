@@ -15,6 +15,7 @@ return {
       "gotmpl",
       "gowork",
       "hcl",
+      "helm",
       "json",
       "lua",
       "luadoc",

@@ -144,5 +144,11 @@ return {
         }
       }
     })
+
+    -- Helm
+    lspconfig.helm_ls.setup({
+      on_attach = on_attach,
+      capabilities = lsp_capabilities,
+    })
   end
 }
