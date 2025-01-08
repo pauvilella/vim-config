@@ -36,8 +36,14 @@ keymap.set("n", "<leader>nh", ":nohlsearch<CR>", { noremap = true, silent = true
 keymap.set("n", "<leader>rw", [[:,$s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]])
 -- rwa: Replce All Words (under cursor) starting from the beginning of the file until the end of the file
 keymap.set("n", "<leader>raw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]])
--- sw: Search Word
+-- sw: Search Word (under cursor)
 keymap.set("n", "<leader>sw", [[:/\<<C-r><C-w>\><CR>]])
+-- rw: Replace All Words (under selection) starting from the cursor until the end of the file
+keymap.set("v", "<leader>rw", [["hy:,$s/<C-r>h//gc<left><left><left>]])
+-- raw: Replace All Words (under selection) starting from the beginning of the file until the end of the file
+keymap.set("v", "<leader>raw", [["hy:%s/<C-r>h//gc<left><left><left>]])
+-- sw: Search Word (under selection)
+keymap.set("v", "<leader>sw", [["hy:/<C-r>h<CR>]])
 
 -- Window management
 keymap.set("n", "<leader>sv", "<C-w>v", { noremap = true, silent = true, desc = "Split window vertically" })     -- split window vertically
