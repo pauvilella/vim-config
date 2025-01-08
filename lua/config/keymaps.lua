@@ -39,9 +39,9 @@ keymap.set("n", "<leader>raw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><L
 -- sw: Search Word (under cursor)
 keymap.set("n", "<leader>sw", [[:/\<<C-r><C-w>\><CR>]])
 -- rw: Replace All Words (under selection) starting from the cursor until the end of the file
-keymap.set("v", "<leader>rw", [["hy:,$s/<C-r>h//gc<left><left><left>]])
+keymap.set("v", "<leader>rw", [["hy:,$s/<C-r>h/<C-r>h/gc<left><left><left>]])
 -- raw: Replace All Words (under selection) starting from the beginning of the file until the end of the file
-keymap.set("v", "<leader>raw", [["hy:%s/<C-r>h//gc<left><left><left>]])
+keymap.set("v", "<leader>raw", [["hy:%s/<C-r>h/<C-r>h/gc<left><left><left>]])
 -- sw: Search Word (under selection)
 keymap.set("v", "<leader>sw", [["hy:/<C-r>h<CR>]])
 
