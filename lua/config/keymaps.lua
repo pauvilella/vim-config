@@ -32,13 +32,13 @@ keymap.set("n", "Q", "<nop>")
 keymap.set("n", "<leader>nh", ":nohlsearch<CR>", { noremap = true, silent = true, desc = "Remove highlight search" })
 
 -- Helps with text search and text replace
--- rw: Replace Word (under cursor) starting from the cursor until the end of the file
+-- rw: Replace Words (under cursor) starting from the cursor until the end of the file
 keymap.set("n", "<leader>rw", [[:,$s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]])
 -- rwa: Replce All Words (under cursor) starting from the beginning of the file until the end of the file
 keymap.set("n", "<leader>raw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]])
 -- sw: Search Word (under cursor)
 keymap.set("n", "<leader>sw", [[:/\<<C-r><C-w>\><CR>]])
--- rw: Replace All Words (under selection) starting from the cursor until the end of the file
+-- rw: Replace Words (under selection) starting from the cursor until the end of the file
 keymap.set("v", "<leader>rw", [["hy:,$s/<C-r>h/<C-r>h/gc<left><left><left>]])
 -- raw: Replace All Words (under selection) starting from the beginning of the file until the end of the file
 keymap.set("v", "<leader>raw", [["hy:%s/<C-r>h/<C-r>h/gc<left><left><left>]])

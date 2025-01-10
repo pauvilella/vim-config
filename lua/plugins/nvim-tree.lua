@@ -17,6 +17,7 @@ return {
         side = "left",
         width = 50,
         relativenumber = true,
+        adaptive_size = true,
       },
       -- change folder arrow icons
       renderer = {
