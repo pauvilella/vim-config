@@ -43,7 +43,7 @@ keymap.set("v", "<leader>rw", [["hy:,$s/<C-r>h/<C-r>h/gc<left><left><left>]])
 -- raw: Replace All Words (under selection) starting from the beginning of the file until the end of the file
 keymap.set("v", "<leader>raw", [["hy:%s/<C-r>h/<C-r>h/gc<left><left><left>]])
 -- sw: Search Word (under selection)
-keymap.set("v", "<leader>sw", [["hy:/<C-r>h<CR>]])
+keymap.set("v", "<leader>sw", [["hy:/\V<C-r>h<CR>]])
 
 -- Window management
 keymap.set("n", "<leader>sv", "<C-w>v", { noremap = true, silent = true, desc = "Split window vertically" })     -- split window vertically
